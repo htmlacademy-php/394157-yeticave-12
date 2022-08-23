@@ -92,6 +92,12 @@ $user_name = 'Сайфутдинов Руслан'; // укажите здесь
                         'img' => 'img/lot-6.jpg'
                     ]
                 ];
+                function formatting_cut( $number_for_formatting ) {
+                    $num_symbols_integer = ceil($number_for_formatting);
+                    $num_symbols_integer = number_format($num_symbols_integer,0,',',' ');
+
+                    return $num_symbols_integer . ' <b class="rub">р</b>';
+                }
             ?>
             <?php foreach($categories as $category): ?>
                 <li class="promo__item promo__item--boards">
@@ -116,7 +122,7 @@ $user_name = 'Сайфутдинов Руслан'; // укажите здесь
                         <div class="lot__state">
                             <div class="lot__rate">
                                 <span class="lot__amount">Стартовая цена</span>
-                                <span class="lot__cost"><?= $lot_item['price'] ?><b class="rub">р</b></span>
+                                <span class="lot__cost"><?php echo formatting_cut($lot_item['price']) ?></span>
                             </div>
                             <div class="lot__timer timer">
                                 12:23
