@@ -143,4 +143,21 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
+/**
+ * Функция для обработки чисел для выводы цены из задания 2.6 
+ */
+function formatting_cut( $number_for_formatting ) {
+    $num_symbols_integer = ceil($number_for_formatting);
+    $num_symbols_integer = number_format($num_symbols_integer,0,',',' ');
 
+    return $num_symbols_integer . ' <b class="rub">р</b>';
+}
+
+/**
+ * Функция-фильтр для защиты от XSS из-задания 3.5
+ */
+function esc($str) {
+	$text = htmlspecialchars($str);
+
+	return $text;
+}

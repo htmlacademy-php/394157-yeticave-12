@@ -1,21 +1,21 @@
 <?php
 require_once('helpers.php');
 require_once('data.php');
+$is_auth = rand(0, 1);
+$user_name = 'Сайфутдинов Руслан'; // укажите здесь ваше имя
+$title = 'GifTube - Главная страница';
 
-function esc($str) {
-	$text = htmlspecialchars($str);
-
-	return $text;
-}
 
 $page_content = include_template('main.php', [
     'categories' => $categories,
-    'lots' => $lots
+    'lots' => $lots,
 ]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
 	'categories' => $categories,
-    'title' => 'GifTube - Главная страница'
+	'is_auth' => $is_auth,
+	'user_name' => $user_name,
+	'title' => $title,
 ]);
 
 print($layout_content);

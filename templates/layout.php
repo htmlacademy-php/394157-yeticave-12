@@ -1,13 +1,8 @@
-<?php
-$is_auth = rand(0, 1);
-
-$user_name = 'Сайфутдинов Руслан'; // укажите здесь ваше имя
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?= $title ?></title>//Главная
+    <title><?= $title ?></title>
     <link href="../css/normalize.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
