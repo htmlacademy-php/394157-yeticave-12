@@ -28,8 +28,12 @@
                                 <span class="lot__amount">Стартовая цена</span>
                                 <span class="lot__cost"><?php echo formatting_cut($lot_item['price']) ?></span>
                             </div>
-                            <div class="lot__timer timer">
-                                12:23
+                            <?php 
+                                $time_value=diff_time($lot_item['expiration_date']);
+                                $add_warning = $time_value[0] == '00'?'timer--finishing':'';
+                            ?>
+                            <div class="lot__timer timer <?= $add_warning ?>">
+                                <?php print ($time_value[0].': '.$time_value[1]) ?>
                             </div>
                         </div>
                     </div>
