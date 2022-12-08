@@ -161,3 +161,25 @@ function esc($str) {
 
 	return $text;
 }
+
+/**
+ * Функция-таймер из-задания 3.6
+ */
+
+function diff_time($time_end) {
+    
+    //постоянные величины
+    $secs_in_hour = 3600;
+
+    //входные параметры даты
+    $time_end = strtotime($time_end);
+    $time_now = time();
+
+    //рассчёты
+    $time_diff = $time_end - $time_now;
+
+    $hours = str_pad(floor($time_diff / $secs_in_hour), 2, "0", STR_PAD_LEFT);
+    $minutes = str_pad(floor(($time_diff % $secs_in_hour) / 60), 2, "0", STR_PAD_LEFT);
+
+    return [$hours, $minutes];
+}
